@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import spinner from "../spinner.jpeg";
 import "../App.css";
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 export class Spinner extends Component {
   static propTypes = {

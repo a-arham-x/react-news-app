@@ -17,8 +17,8 @@ export class Navbar extends Component {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
-                            <li className="nav-item">
-                                <Link className="nav-link" aria-current="page"to="/">Home</Link>
+                        <li className="nav-item">
+                                <Link className="nav-link" to="/general">General</Link>
                             </li>
                             {/* <li className="nav-item">
                                 <a className="nav-link" href="/">About</a>
@@ -28,9 +28,6 @@ export class Navbar extends Component {
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/entertainment">Entertainment</Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/general">General</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/health">Health</Link>
