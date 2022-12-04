@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.spinner{
+  display: block;
+  margin: auto;
+  animation: spinner-spin infinite 1s linear;
+}
+
+@keyframes spinner-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
