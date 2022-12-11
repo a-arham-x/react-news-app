@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
     return (
-        <nav className="navbar navbar-expand-lg bg-light">
+        <nav className="navbar fixed-top navbar-expand-lg bg-light">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">News House</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,9 +15,6 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link className="nav-link" to="/general">General</Link>
                         </li>
-                        {/* <li className="nav-item">
-                                <a className="nav-link" href="/">About</a>
-                            </li> */}
                         <li className="nav-item">
                             <Link className="nav-link" to="/business">Business</Link>
                         </li>

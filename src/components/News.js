@@ -6,19 +6,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 const News = (props) => {
 
-  // constructor() {
-  //   super();
-  //   console.log("constructor");
-  //   this.state = {
-  //     articles: null,
-  //     loading: false,
-  //     page: 1,
-  //     totalResults: 0
-  //   };
-  // }
-
   const [articles, setArticles] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
 
@@ -26,7 +14,6 @@ const News = (props) => {
     console.log(props.apiKey);
     props.setProgress(10);
     let url = `https://newsapi.org/v2/top-headlines?category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=9`;
-    setLoading(true);
     let data = await fetch(url);
     props.setProgress(30);
     console.log(data);
@@ -34,7 +21,7 @@ const News = (props) => {
     props.setProgress(60);
     setArticles(parsedData.articles);
     setTotalResults(parsedData.totalResults);
-    setLoading(false);
+    // setLoading(false);
     // this.setState({ articles: parsedData.articles, totalResults: parsedData.totalResults, loading: false });
     console.log("Hello World");
     console.log(articles);
@@ -44,6 +31,7 @@ const News = (props) => {
 
   useEffect(() => {
     updateNews();
+    // eslint-disable-next-line
   }, []);
 
   // async componentDidMount() {
@@ -62,15 +50,15 @@ const News = (props) => {
   // }
 
   const fetchMoreData = async () => {
+    let url = `https://newsapi.org/v2/top-headlines?category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=9`;
     setPage(page + 1);
-    let url = `https://newsapi.org/v2/top-headlines?category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=9`;
-    setLoading(true);
+    // setLoading(true);
     let data = await fetch(url);
     console.log(data);
     let parsedData = await data.json();
     setArticles(articles.concat(parsedData.articles));
     setTotalResults(parsedData.totalResults);
-    setLoading(false);
+    // setLoading(false);
     // this.setState({ articles: this.state.articles.concat(parsedData.articles), totalResults: parsedData.totalResults, loading: false });
     // console.log(this.state.articles.length) 
     console.log(totalResults);
@@ -80,12 +68,12 @@ const News = (props) => {
   return (
     <>
       {/* {this.props.setProgress(0)} */}
-      <h1 className="text-center">Top Headlines</h1>
+      <h1 className="text-center" style={{marginTop: "55px"}}>Top Headlines</h1>
       {/* {loading && <Spinner />} */}
       {articles && <InfiniteScroll
         dataLength={articles.length}
         next={fetchMoreData}
-        hasMore={articles.length <= 100}
+        hasMore={articles.length <= 80}
         loader={<Spinner />}
       >
         <div className="row" style={{ width: "100%", margin: "auto" }}>
